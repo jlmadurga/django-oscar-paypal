@@ -194,7 +194,7 @@ def set_txn(basket, shipping_methods, currency, return_url, cancel_url, update_u
     index = 0
     for index, line in enumerate(basket.all_lines()):
         product = line.product
-        params['L_PAYMENTREQUEST_0_NAME%d' % index] = product.get_title()
+        params['L_PAYMENTREQUEST_0_NAME%d' % index] = line.name
         params['L_PAYMENTREQUEST_0_NUMBER%d' % index] = (product.upc if
                                                          product.upc else '')
         desc = ''
