@@ -18,8 +18,8 @@
             <h4>{% trans "PayPal" %}</h4>
             <p>
                 {% blocktrans with amt=paypal_amount|currency email=paypal_user_email %}
-                    {{ amt }} will be deducted from your PayPal account, registered 
-                    to email: {{ email }}.
+                    {{ amt }} se le cobrará a su cuenta de PayPal, asociada 
+                    al correo: {{ email }}.
                 {% endblocktrans %}
             </p>
         </div>
