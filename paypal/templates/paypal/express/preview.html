@@ -9,18 +9,23 @@
 {% block shipping_method_actions %}{% endblock %}
 {% block order_contents_actions %}{% endblock %}
 
-{% block description %}
-	{{ block.super }}
-	<form method="post" action="{% url 'paypal-place-order' basket.id %}">
-        {% csrf_token %}
-        <input type="hidden" name="payer_id" value="{{ payer_id }}" />
-        <input type="hidden" name="token" value="{{ token }}" />
-        <div class="form-actions">
-            <button id='place-order' type="submit" class="button button-rounded button-large fright" data-loading-text="{% trans 'Submitting...' %}">
-        		{% trans "Place order" %}
-        	</button>
-        </div>
-    </form>
+{% block description %}	
+	<div class="col-sm-6">
+		<form method="post" action="{% url 'paypal-place-order' basket.id %}">
+        	{% csrf_token %}
+        	<input type="hidden" name="payer_id" value="{{ payer_id }}" />
+        	<input type="hidden" name="token" value="{{ token }}" />
+        	<div class="form-actions">
+            	<button id='place-order' type="submit" class="button button-rounded button-large fright" data-loading-text="{% trans 'Submitting...' %}">
+        			{% trans "Confirmar" %}
+        		</button>
+        	</div>
+    	</form>
+	</div>
+	<div class="col-sm-6">
+		{{ block.super }}
+	</div>
+	
 {% endblock %}
 
 {% block payment_method %}
@@ -48,7 +53,7 @@
         <input type="hidden" name="token" value="{{ token }}" />
         <div class="form-actions">
             <button id='place-order' type="submit" class="button button-rounded button-large fright" data-loading-text="{% trans 'Submitting...' %}">
-        		{% trans "Place order" %}
+        		{% trans "Confirmar" %}
         	</button>
         </div>
     </form>
